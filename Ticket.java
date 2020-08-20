@@ -6,6 +6,7 @@ public class Ticket {
         this.color = color;
     }
 
+
     public String getRegistration() {
         return registration;
     }
@@ -22,5 +23,10 @@ public class Ticket {
         this.color = color;
     }
 
+    @Override
+    public String toString() {
+        return  registration + "\t" +
+                 color;
+    }
 }
 

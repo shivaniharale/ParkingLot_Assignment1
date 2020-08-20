@@ -57,13 +57,15 @@ public class ParkingLot {
 
 
     public void displayStatus(){
-        for (int i=0;i<ticket.size();i++){
-            System.out.println("\n"+(i+1)+"."+ticket.get(i).getRegistration()+"\t"+ticket.get(i).getColor());
-        }
+        ticket.forEach((n)->System.out.println("\n"+n.getRegistration()+"\t"+n.getColor()));
     }
 
     public void registrationsForGivenColor(String color){
-        int temp=0;
+        ticket.stream()
+                .filter(r->r.getColor().equals(color))
+                .forEach(System.out::println);
+
+       /* int temp=0;
         for (int i=0;i<ticket.size();i++){
             if(ticket.get(i).getColor().equals(color)){
                 temp++;
@@ -71,7 +73,7 @@ public class ParkingLot {
             }
             else if(ticket.size()==i && temp==0)
                 System.out.println("No vehicle of given color found");
-        }
+        }*/
     }
 
     public void slotsForGivenColor(String color){
